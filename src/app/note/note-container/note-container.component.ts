@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
 export class NoteContainerComponent implements OnInit {
 
   selectedNote$: Observable<Note>;
-  noteItems$: Observable<NoteItem>;
+  noteItems$: Observable<NoteItem[]>;
 
   constructor(private userService: NoteService) {
   }

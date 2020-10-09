@@ -1,12 +1,8 @@
-<mat-drawer-container class="note-container">
-  <mat-drawer mode="side" opened>
-    <app-note-list></app-note-list>
-  </mat-drawer>
-  <mat-drawer-content>
+<mat-grid-list cols="6">
+  <mat-grid-tile [colspan]="1">
+    <app-note-list [noteItems$]="noteItems$"></app-note-list>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="5">
     <app-note-details></app-note-details>
-  </mat-drawer-content>
-</mat-drawer-container>
-
-
-<!--<pre *ngFor="let note of noteItems$ | async">{{note | json}}</pre>-->
-<pre>{{noteItems$ | async}}</pre>
+  </mat-grid-tile>
+</mat-grid-list>
