@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NoteItem} from '../../models/notes';
 
 @Component({
@@ -9,7 +9,8 @@ import {NoteItem} from '../../models/notes';
 export class NoteListComponent implements OnInit {
 
   @Input() noteItems: NoteItem[];
-  @Output() selectedNoteId: number;
+  @Output() selectedNoteIdChange = new EventEmitter<number>();
+  selectedNoteId: number;
 
   constructor() {
   }
@@ -19,6 +20,7 @@ export class NoteListComponent implements OnInit {
 
   onSelectedNoteChange(noteIds: number[]): void {
     this.selectedNoteId = noteIds[0];
+    this.selectedNoteIdChange.emit(this.selectedNoteId);
   }
 
 }
