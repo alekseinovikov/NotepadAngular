@@ -30,7 +30,7 @@ export class NoteServiceImpl implements NoteService {
   }
 
   public getNoteById(id: number): Observable<Note> {
-    const foundNote = this.notes.find(x => x.id === id);
+    const foundNote = this.notes.find(x => x.id == id);
     return of(foundNote);
   }
 
