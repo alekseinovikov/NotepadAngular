@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {NoteItem} from '../../models/notes';
 
 @Component({
   selector: 'app-note-list',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteListComponent implements OnInit {
 
-  constructor() { }
+  @Input() noteItems: NoteItem[];
+  @Output() selectedNoteIdChange = new EventEmitter<number>();
+  selectedNoteId: number;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  onSelectedNoteChange(noteIds: number[]): void {
+    this.selectedNoteId = noteIds[0];
+    this.selectedNoteIdChange.emit(this.selectedNoteId);
   }
 
 }

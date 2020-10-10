@@ -1,1 +1,7 @@
-<p>user-list works!</p>
+<mat-selection-list [(ngModel)]="selectedNoteId" (ngModelChange)="onSelectedNoteChange($event)" [multiple]="false">
+  <mat-list-option *ngFor="let noteItem of noteItems" value="{{noteItem.id}}">
+    {{noteItem.title}}
+  </mat-list-option>
+</mat-selection-list>
+
+<p>{{selectedNoteId}}</p>

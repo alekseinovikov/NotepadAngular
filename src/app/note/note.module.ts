@@ -7,6 +7,9 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {NoteService, NoteServiceImpl} from './note-service-impl.service';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import {NoteService, NoteServiceImpl} from './note-service-impl.service';
     CommonModule,
     MatSliderModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    FormsModule
   ],
   exports: [
     NoteContainerComponent
