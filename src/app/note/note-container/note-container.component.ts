@@ -21,12 +21,17 @@ export class NoteContainerComponent implements OnInit {
         this.noteItems$ = this.userService.getNoteItems();
     }
 
-    loadNote(id: number): void {
-        this.selectedNote$ = this.userService.getNoteById(id);
+    loadSelectedNoteNote(): void {
+        if (!this.selectedNoteId) {
+            return;
+        }
+
+        this.selectedNote$ = this.userService.getNoteById(this.selectedNoteId);
     }
 
     onSelectedNoteIdChange(id: number): void {
         this.selectedNoteId = id;
+        this.loadSelectedNoteNote();
     }
 
 }
