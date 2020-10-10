@@ -3,7 +3,7 @@
     <app-note-list [noteItems]="noteItems$ | async" (selectedNoteIdChange)="onSelectedNoteIdChange($event)"></app-note-list>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="5">
-    <app-note-details></app-note-details>
+    <app-note-details [note]="selectedNote"></app-note-details>
   </mat-grid-tile>
 </mat-grid-list>
 

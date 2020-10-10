@@ -1,3 +1,5 @@
-<!--
-<p>{{note.title}}</p>
--->
+<div *ngIf="note">
+  <p>Id: {{note.id}}</p>
+  <p>Title: {{note.title}}</p>
+  <p>Content: {{note.content}}</p>
+</div>

@@ -10,7 +10,7 @@ export class NoteListComponent implements OnInit {
 
   @Input() noteItems: NoteItem[];
   @Output() selectedNoteIdChange = new EventEmitter<number>();
-  selectedNoteId: number;
+  selectedNoteId: number[];
 
   constructor() {
   }
@@ -19,8 +19,9 @@ export class NoteListComponent implements OnInit {
   }
 
   onSelectedNoteChange(noteIds: number[]): void {
-    this.selectedNoteId = noteIds[0];
-    this.selectedNoteIdChange.emit(this.selectedNoteId);
+    const selectedId = noteIds[0];
+    this.selectedNoteId = [selectedId];
+    this.selectedNoteIdChange.emit(selectedId);
   }
 
 }
