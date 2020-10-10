@@ -1,5 +1,5 @@
 <mat-selection-list [(ngModel)]="selectedNoteId" (ngModelChange)="onSelectedNoteChange($event)" [multiple]="false">
-  <mat-list-option *ngFor="let noteItem of (noteItems$ | async)" value="{{noteItem.id}}">
+  <mat-list-option *ngFor="let noteItem of noteItems" value="{{noteItem.id}}">
     {{noteItem.title}}
   </mat-list-option>
 </mat-selection-list>

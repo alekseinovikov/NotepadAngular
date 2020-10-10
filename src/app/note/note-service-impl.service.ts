@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Note, NoteItem} from './models/notes';
-import {Observable, of} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {from, Observable, of} from 'rxjs';
+import {map, toArray} from 'rxjs/operators';
 
 export abstract class NoteService {
   abstract getNoteById(id: number): Observable<Note>;
@@ -24,17 +24,14 @@ export class NoteServiceImpl implements NoteService {
   }
 
   public getNoteItems(): Observable<NoteItem[]> {
-    return of(this.notes)
-      .pipe(map(value => this.convertItems(value)));
+    return from(this.notes).pipe(
+      map(value => this.convert(value)),
+      toArray());
   }
 
   public getNoteById(id: number): Observable<Note> {
     const foundNote = this.notes.find(x => x.id === id);
     return of(foundNote);
-  }
-
-  private convertItems(notes: Note[]): NoteItem[] {
-    return notes.map(note => this.convert(note));
   }
 
   private convert(note: Note): NoteItem {

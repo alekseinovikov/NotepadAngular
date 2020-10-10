@@ -1,6 +1,5 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {NoteItem} from '../../models/notes';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-note-list',
@@ -9,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class NoteListComponent implements OnInit {
 
-  @Input() noteItems$: Observable<NoteItem[]>;
+  @Input() noteItems: NoteItem[];
   @Output() selectedNoteId: number;
 
   constructor() {
