@@ -10,9 +10,14 @@ export class NoteDetailsComponent implements OnInit {
 
   @Input() note: Note;
 
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  cancel(): void {
+    this.note = undefined;
   }
 
 }

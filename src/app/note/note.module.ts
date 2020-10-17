@@ -10,6 +10,7 @@ import {NoteService, NoteServiceImpl} from './note-service-impl.service';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {FormsModule} from '@angular/forms';
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    FormsModule
+    FormsModule,
+    MatInputModule
   ],
   exports: [
     NoteContainerComponent
