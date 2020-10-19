@@ -1,17 +1,15 @@
-<div *ngIf="note">
-  <form class="note-edit-form">
-    <mat-form-field class="note-full-width">
-      <mat-label>Title</mat-label>
-      <input matInput placeholder="Title" [(ngModel)]="note.title" name="title"/>
-    </mat-form-field>
+<div *ngIf="noteForm">
+  <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+    <label>
+      Title:
+      <input type="text" formControlName="title">
+    </label>
+    <label>
+      Content:
+      <input type="text" formControlName="content">
+    </label>
 
-    <mat-form-field class="note-full-width">
-      <mat-label>Content</mat-label>
-      <textarea matInput placeholder="Content" [(ngModel)]="note.content" name="content"></textarea>
-    </mat-form-field>
-
-    <button mat-button color="accent">Save</button>
-    <button mat-button color="warn" (click)="cancel()">Cancel</button>
-
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
   </form>
 </div>

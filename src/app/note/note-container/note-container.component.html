@@ -3,6 +3,9 @@
     <app-note-list [noteItems]="noteItems$ | async" (selectedNoteIdChange)="onSelectedNoteIdChange($event)"></app-note-list>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1">
-    <app-note-details [inputNote]="selectedNote"></app-note-details>
+    <div *ngIf="selectedNote$ | async as note">
+      <p>{{note.title}}</p>
+      <app-note-details [note]="note"></app-note-details>
+    </div>
   </mat-grid-tile>
 </mat-grid-list>

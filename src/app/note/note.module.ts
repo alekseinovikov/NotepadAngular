@@ -11,6 +11,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import {MatInputModule} from '@angular/material/input';
     MatListModule,
     MatGridListModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule,
+    ReactiveFormsModule
   ],
   exports: [
     NoteContainerComponent

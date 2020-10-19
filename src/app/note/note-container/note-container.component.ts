@@ -10,17 +10,14 @@ import {Observable, Subscription} from 'rxjs';
 })
 export class NoteContainerComponent implements OnInit, OnDestroy {
 
-    selectedNote: Note;
     selectedNote$: Observable<Note>;
     noteItems$: Observable<NoteItem[]>;
     selectedNoteId: number;
-    selectedNoteSubscription: Subscription;
 
     constructor(private userService: NoteService) {
     }
 
     ngOnDestroy(): void {
-        this.unsubscribeSelectedNote();
     }
 
     ngOnInit(): void {
@@ -32,22 +29,12 @@ export class NoteContainerComponent implements OnInit, OnDestroy {
             return;
         }
 
-        this.unsubscribeSelectedNote();
-        this.selectedNoteSubscription = this.userService.getNoteById(this.selectedNoteId)
-            .subscribe(value => {
-                this.selectedNote = value;
-            });
+        this.selectedNote$ = this.userService.getNoteById(this.selectedNoteId);
     }
 
     onSelectedNoteIdChange(id: number): void {
         this.selectedNoteId = id;
         this.loadSelectedNoteNote();
-    }
-
-    private unsubscribeSelectedNote(): void {
-        if (this.selectedNoteSubscription) {
-            this.selectedNoteSubscription.unsubscribe();
-        }
     }
 
 }
